@@ -1,0 +1,60 @@
+<!-- Display the countdown timer in an element -->
+<p id="saleEnds"></p>
+
+<script>
+  // Set the date we're counting down to
+  //var countDownDate = new Date("Nov 1, 2018 15:37:25").getTime();
+
+  // Thursday's countdown
+  var countDownDate = new Date("Nov 15, 2018 22:00:00").getTime();
+
+
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  var saleText = "Japan bound in: ";
+
+  // Displays the counter for when the sale ends with the element with id="saleEnds"
+  //document.getElementById("saleEnds").innerHTML = "Hurry, sale ends in:";
+  
+  document.getElementById("saleEnds").innerHTML = saleText + days + "days " + hours + "hrs "
+  + minutes + "mins " + seconds + " seconds";
+
+ 
+
+  // If the count down is finished hide the counter
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("saleEnds").style.visibility = "hidden";
+  }
+}, 1000);
+</script>
+
+<style type="text/css">
+
+#saleEnds {
+  background-color: black;
+  color:white;
+  font-size: 14px;
+  font-family: Lato,"Myriad Pro","Trebuchet MS",Ubuntu,sans-serif;
+  font-weight:400;
+  line-height: 20px;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  padding: 20 0 20 0px;
+
+  }
+
+</style>
